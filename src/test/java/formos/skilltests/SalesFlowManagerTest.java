@@ -1,20 +1,31 @@
 package formos.skilltests;
 
+import static org.junit.Assert.*;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ReadInputTest {
+public class SalesFlowManagerTest {
 
-  private FlowManager sell;
+  private SalesFlowManager sell;
 
   @Before
   public void initDeclarations() {
-    sell = FlowManager.startSell();
+    sell = SalesFlowManager.startSell(System.in);
   }
 
   @Test
   public void shouldDisplayAGreeting() {
-    Assert.assertEquals("Welcome client", sell.welcome());
+    assertEquals("Welcome client \n", sell.welcome());
+  }
+
+  @Test
+  public void shouldListAInitInventory() {
+    StringBuffer initInventory = new StringBuffer();
+    initInventory.append("Strawberry flavor 3 drinks \n");
+    initInventory.append("Banana flavor 3 drinks \n");
+    initInventory.append("Mango flavor 3 drinks");
+    assertEquals(initInventory.toString(), sell.listInventory().toString());
   }
 }
