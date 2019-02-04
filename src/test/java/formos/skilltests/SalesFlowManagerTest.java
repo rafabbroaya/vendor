@@ -1,8 +1,7 @@
 package formos.skilltests;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,11 +20,21 @@ public class SalesFlowManagerTest {
   }
 
   @Test
-  public void shouldListAInitInventory() {
+  public void shouldShowAInitInventory() {
     StringBuffer initInventory = new StringBuffer();
     initInventory.append("Strawberry flavor 3 drinks \n");
     initInventory.append("Banana flavor 3 drinks \n");
     initInventory.append("Mango flavor 3 drinks");
-    assertEquals(initInventory.toString(), sell.listInventory().toString());
+    assertEquals(initInventory.toString(), sell.initHardCodeInventory().toString());
+  }
+
+  @Test
+  public void shouldRemoveAStrawberryDrinkFromInventory() {
+    sell.getStrawberryDrink(1);
+    StringBuffer inventory = new StringBuffer();
+    inventory.append("Strawberry flavor 2 drinks \n");
+    inventory.append("Banana flavor 3 drinks \n");
+    inventory.append("Mango flavor 3 drinks");
+    assertEquals(inventory.toString(), sell.getInventory().toString());
   }
 }

@@ -7,6 +7,7 @@ public class App {
 
   public static void main(String[] args) {
     SalesFlowManager salesFlow = SalesFlowManager.startSell(System.in);
-    salesFlow.welcome();
+    SalesFlowManager.printToConsole(salesFlow.welcome());
+    SalesFlowManager.printToConsole(salesFlow.initHardCodeInventory());
   }
 }
