@@ -1,4 +1,4 @@
-package formos.skilltests.pojos;
+package formos.skilltests.model;
 
 /**
  * @author raasanch
